@@ -1,4 +1,10 @@
+import argparse
 from subprocess import *
+import sys
+
+jarfilename = sys.argv[1]
+indexfilepath = sys.argv[2]
+searchstring = sys.argv[3]
 
 def jarWrapper(*args):
     process = Popen(['java', '-jar']+list(args), stdout=PIPE, stderr=PIPE)
@@ -14,7 +20,8 @@ def jarWrapper(*args):
     ret.remove('')
     return ret
 
-args = ['Lucenesearch.jar', '/Users/jebaraj/IndexOutputJSON/', 'Ora Et Labora'] # Any number of args to be passed to the jar file
+# args = ['Lucenesearch.jar', '/Users/jebaraj/IndexOutputJSON/', 'Ora Et Labora'] # Any number of args to be passed to the jar file
+args = [jarfilename, indexfilepath, searchstring] # Any number of args to be passed to the jar file
 
 result = jarWrapper(*args)
 
