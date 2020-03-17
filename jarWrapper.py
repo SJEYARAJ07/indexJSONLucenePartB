@@ -20,9 +20,13 @@ def jarWrapper(*args):
     ret.remove('')
     return ret
 
-# args = ['Lucenesearch.jar', '/Users/jebaraj/IndexOutputJSON/', 'Ora Et Labora'] # Any number of args to be passed to the jar file
-args = [jarfilename, indexfilepath, searchstring] # Any number of args to be passed to the jar file
+def main():
+    # args = ['Lucenesearch.jar', '/Users/jebaraj/IndexOutputJSON/', 'Ora Et Labora'] # Any number of args to be passed to the jar file
+    args = [jarfilename, indexfilepath, searchstring] # Any number of args to be passed to the jar file
+    result = jarWrapper(*args)
+    print result
+    return result
 
-result = jarWrapper(*args)
 
-print result
+# run the program
+main()
